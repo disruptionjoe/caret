@@ -146,19 +146,36 @@ If you need a sales pitch, this is not for you.
 
 Caret^ is a notation spec. The symbol set, the Field Guide structure, and the initial patterns are defined. Adapter implementations that compile the notation into specific runtimes are next.
 
+## Try It Now
+
+**[caret-cheatsheet.md](caret-cheatsheet.md)** — Copy-paste reference. One page. Start using the notation immediately.
+
+**[caret-it.md](caret-it.md)** — Have an agent convert an existing skill file into Caret^ notation.
+
 ## Structure
 
 ```
-README.md               you are here
-MANIFESTO.md            why this exists
-CONTRIBUTING.md         how to propose changes
+README.md                you are here
+AGENTS.md                orientation for agents navigating this repo
+caret-cheatsheet.md      quick reference — grab and go
+caret-it.md              convert existing files to Caret^
+MANIFESTO.md             why this exists
+CONTRIBUTING.md          how to propose changes
+notation/                the canonical spec
+  ├── SPEC.md            syntax, primitives, control knobs
+  ├── PRINCIPLES.md      design principles
+  ├── SEMANTICS.md       disambiguation and edge cases
+  ├── PROFILES.md        usage profiles (file-first, chat-safe, minimal)
+  ├── DECISIONS.md       notation design decisions
+  └── examples/          side-by-side comparisons
 field-guide/
-  ├── glossary/         the vocabulary
-  ├── patterns/         architecture patterns
-  ├── examples/         real-world usage
-  └── *.md              concept clusters + emerging terms
-research/               evidence that the notation works
-governance/             how contributions are reviewed
+  ├── glossary/          the vocabulary (CANON / EMERGING / FRAGMENTED)
+  ├── patterns/          orchestration patterns
+  ├── examples/          real-world usage
+  ├── skills/            contributor tools
+  └── *.md               concept clusters
+research/                evidence that the notation works
+governance/              how contributions are reviewed
 ```
 
 ## Contributing

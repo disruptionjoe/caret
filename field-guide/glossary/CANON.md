@@ -31,7 +31,10 @@ A single pass through the model — one "thinking step." Each time the model gen
 Evaluating an agent's performance or outputs. Can be automated (test suites, scoring functions) or human (reviewing quality, accuracy, tone). Essential for knowing whether a system actually works.
 
 ### Temperature
-A setting that controls how creative or conservative the model's outputs are. Low temperature = more predictable, focused, deterministic. High temperature = more exploratory, varied, creative.
+A setting that controls how creative or conservative the model's outputs are. Low temperature = more predictable, focused, deterministic. High temperature = more exploratory, varied, creative. In Caret^ notation: `^temp0`–`^temp9`.
+
+### Grip
+How tightly the output commits to a specific recommendation. Controls authority posture — how directive vs. exploratory the response is. Orthogonal to temperature (creative range) and depth (thoroughness). Loose grip = open hand, options can move. Tight grip = locked in, nothing moves. In Caret^ notation: `^grip0` (pure exploration, only questions) through `^grip9` (exact spec, no hedging). Not the same as temperature: you can be creative and non-prescriptive (`^temp7 ^grip2`) or conservative and highly prescriptive (`^temp2 ^grip9`).
 
 ### Token
 The basic unit of text that language models process. Roughly 3/4 of a word. Important because context windows, costs, and speed are all measured in tokens.
