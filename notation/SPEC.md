@@ -1,141 +1,163 @@
-# Caret^ Notation Spec
+# Caret^ Spec
 
-The canonical syntax reference.
+## Purpose
 
----
+Caret^ is a semantic signal layer for agent workflows in Markdown.
 
-## Core Symbols
+It signals intent. The harness decides execution.
 
-```
-^    directive
-^^   spawn ephemeral
-^^^  spawn anchored
-^^^^ clear context
-```
+The canonical syntax is small:
 
-Four symbols. That is the interaction model.
+- caret count
+- word directive names
+- optional scalar levels
+- comma-separated target lists
+- colon binding
+- indentation for scope
 
----
+## Core Forms
 
-## Numbered Spawn
-
-```
-^^3   three ephemeral agents
-^^^2  two anchored agents
-```
-
-Trailing number sets agent quantity. Orchestration is delegated to the runtime.
-
----
-
-## Control Knobs
-
-Ordinal parameters (0–9) that shape agent behavior without changing content.
-
-| Knob | Controls | 0 | 9 |
-|------|----------|---|---|
-| `^depth` | Thoroughness | Shallow scan | Exhaustive analysis |
-| `^temp` | Creative range | Conservative, conventional | Exploratory, unconventional |
-| `^grip` | Prescriptiveness | Pure exploration, no recommendation | Exact spec, no hedging |
-
-Knobs are orthogonal. They compose:
-
-```
-^depth7 ^temp2 ^grip9   thorough, conventional, tell me exactly what to do
-^depth3 ^temp8 ^grip2   quick, creative, don't commit to anything
+```text
+^      directive
+^^     change the hat, not the worker
+^^^    change the worker
+^^^^   fresh-eyes boundary
 ```
 
-### `^grip` scale
+The meanings are stable:
 
-```
-^grip0  pure exploration — only questions and considerations
-^grip1  landscape — maps the option space, no ranking
-^grip2  gentle lean — "you might consider X," alternatives equal weight
-^grip3  soft recommend — "X looks strongest, but here are others"
-^grip5  balanced — clear recommendation with rationale, alternatives acknowledged
-^grip7  directive — "do X," brief rationale, alternatives as context only
-^grip8  imperative — "step 1, step 2, step 3" — execute this
-^grip9  exact — precise spec, no interpretation, no hedging, no alternatives
-```
+- `^` signals an instruction or control dimension.
+- `^^` applies a lens, persona, or skill to the current worker.
+- `^^^` requests a separate worker boundary.
+- `^^^^` opens a fresh-eyes boundary. A second `^^^^` closes it. If not closed explicitly, it continues to the end of the containing block.
 
----
+More carets mean deeper separation.
 
-## Parameters
+## Directive Names And Levels
 
-Dot notation attaches conditions to any directive.
+Most scalar directives use a `0-9` scale:
 
-```
-^model.sonnet
-^retries.2
-^timeout.30s
+```text
+0      suppress or minimize
+1-4    below normal
+5      normal / default
+6-9    above normal
 ```
 
-Parameters are hints. If the runtime adapter recognizes it, it applies it. If not, it ignores it. The notation does not enforce a parameter vocabulary — that is the adapter's job.
+If a level is omitted, normal behavior is assumed.
 
----
+Compact and spaced forms are equivalent:
 
-## Verbose Form
-
-Short form and long form mean the same thing.
-
-| Short | Long |
-|-------|------|
-| `^^` | `^spawn.ephemeral` |
-| `^^^` | `^spawn.anchored` |
-| `^^^^` | `^context.clear` |
-| — | `^govern.readonly` |
-
-Separator is always `.` — no parentheses, no hyphens. Compound words collapse: `readonly`, not `read-only`.
-
----
-
-## Context Directives
-
-```
-^context.none       no prior context
-^context.selected   named context items follow
-^context.full       everything available
-^context.clear      save state, wipe, start clean (same as ^^^^)
+```text
+^depth8
+^depth 8
 ```
 
----
+One-letter aliases are reserved for scalars.
 
-## Governance Directives
+Aliases are case-insensitive:
 
+```text
+^t9
+^T9
+^temp9
+^temperature9
 ```
-^govern.readonly           read only, no mutations
-^govern.askbeforewrite     request approval before writes
-^govern.askbeforenetwork   request approval before network calls
+
+Operational directives may also take levels:
+
+```text
+^review3
+^review8
 ```
 
----
+Caret^ uses open vocabulary. Any clear word may be used as a directive. The notation defines the shape of the signal, not a closed dictionary of allowed terms.
+
+## Targets
+
+Targets follow `^^` or `^^^`.
+
+Comma separates multiple targets:
+
+```text
+^^critic,researcher
+^^^planner,reviewer
+```
+
+Targets may be:
+
+- labels
+- persona names
+- repo-relative file paths
+- skill files
+- other handles the harness understands
+
+Exact targets are valid:
+
+```text
+^^personas/critic.md
+^^^skills/research.md
+```
+
+After `^^` or `^^^`, a bare number means count:
+
+```text
+^^3
+^^^3
+```
+
+Count form asks the harness to choose relevant targets when it has a supported selection mechanism.
+
+## Binding
+
+Colon binds a directive to a target list:
+
+```text
+^^review:critic,ux-designer
+^^^plan:software-engineer,product-manager
+```
+
+Colon binds. Comma separates.
+
+## Scope
+
+A directive applies to the indented block beneath it. If nothing is indented beneath it, it applies to the next line.
+
+`^^` and `^^^` create a new scope. That scope closes on outdent.
+
+`^^^^` is the only explicit paired boundary in the core notation.
+
+Directives flow downward into their block. They do not leak upward or sideways.
+
+Use spaces in shared files. Two spaces per indentation level is the preferred style. Any consistent deeper indent counts as child scope. Avoid tabs.
+
+Blank lines do not close a scope by themselves.
+
+Markdown headings, lists, and blockquotes are useful containers for organization, but they are not special Caret^ syntax. The close rule for `^^` and `^^^` is still outdent.
 
 ## Composition
 
-Directives compose left-to-right on a line. Indentation implies scope.
+Directives compose left to right on a line.
 
-```
+More local scope overrides broader scope. Within the same scope and the same control dimension, the rightmost directive wins.
+
+Example:
+
+```text
 ^^^coordinator
   ^depth8
-  ^^3
-    ^context.selected topic constraints
+  ^^^3
     ^depth7 ^temp5
 ```
 
-The coordinator is anchored, depth 8. It spawns three ephemeral agents, each scoped to selected context at depth 7, temp 5.
+Here the coordinator block carries `^depth8`, while each nested spawned worker carries `^depth7 ^temp5`.
 
----
+## Literal Text
 
-## Human Gates
+Inside fenced code blocks, Caret^ is example text, not live instruction.
 
-```
-→ human.approve
-```
+Use fenced code blocks when you want to show notation literally.
 
-A workflow pause requiring human input before continuing.
+## Defaults
 
----
-
-## What the notation does NOT cover
-
-Domain-specific instructions ("check for security issues," "maintain the author's voice") stay in prose. Caret handles the orchestration scaffold — who gets spawned, what context they see, what they're allowed to do, how deep they go. Domain expertise lives alongside the notation, not inside it.
+If a directive, target, or level is omitted, the harness falls back to its normal behavior unless a more specific local rule exists in the current scope.

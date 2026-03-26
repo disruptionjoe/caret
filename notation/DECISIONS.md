@@ -1,27 +1,57 @@
-# Notation Decisions Log
+# Notation Decisions
 
-Design decisions specific to the notation. Newest first.
+## 2026-03-26
 
-For project-level decisions (naming, structure, governance), see the project decisions log.
+### D001: Portable Artifact First
 
----
+`/caret-cheatsheet.md` is the product artifact. The notation directory exists to clarify and support it.
 
-## ND-001 — Control knobs are ordinal, not categorical
+### D002: Four-Form Core
 
-**Date:** 2026-03-24
-**Status:** Decided
-**Decision:** Knobs like `^depth`, `^temp`, and `^grip` use a 0–9 ordinal scale, not categorical labels like `high`/`medium`/`low`.
-**Rationale:** Numbers compose better, compare better, and are more precise. `^depth7` is unambiguous. `^depth.high` invites the question "how high?" The ordinal scale also enables machine comparison between agent configurations.
+The canonical core stays:
 
----
+- `^` directive
+- `^^` change the hat, not the worker
+- `^^^` change the worker
+- `^^^^` fresh-eyes boundary
 
-## ND-002 — `^grip` is orthogonal to `^temp`
+### D003: Open Vocabulary, Fixed Structure
 
-**Date:** 2026-03-24
-**Status:** Decided
-**Decision:** Prescriptiveness (`^grip`) and creative range (`^temp`) are separate, composable knobs.
-**Rationale:** You can be creative and non-prescriptive (`^temp7 ^grip2` = "here are three unconventional options, no recommendation"). Or conservative and highly prescriptive (`^temp2 ^grip9` = "do exactly this standard thing"). Collapsing them into one control loses a full dimension of agent behavior.
+Caret^ keeps a fixed structural model and an open directive vocabulary.
 
----
+### D004: Scalar Convention
 
-<!-- Future decisions go here -->
+The canonical scalar convention is `0-9`, with omitted level meaning normal behavior.
+
+### D005: Scalar Alias Rule
+
+One-letter aliases are reserved for scalars. Operational directives spell out.
+
+### D006: Target Syntax
+
+Canonical target syntax uses:
+
+- commas for multiple targets
+- colon for binding
+- bare numbers after `^^` or `^^^` for count form
+- exact repo-relative handles when precision matters
+
+### D007: Scope Rule
+
+`^^` and `^^^` close by outdent. `^^^^` is the only explicit paired boundary in the core notation.
+
+### D008: Markdown Relationship
+
+Markdown containers help organize documents, but they are not hidden Caret^ delimiters.
+
+### D009: Literal Example Rule
+
+Inside fenced code blocks, Caret^ is example text, not live instruction.
+
+### D010: Contract And Security Placement
+
+Interpretation behavior and trust boundaries belong in canonical notation docs, not in patterns or scattered examples.
+
+### D011: Repo-Wide Review Trigger
+
+When the cheatsheet changes, every notation-bearing doc, example, and pattern in the repo must be re-reviewed.

@@ -1,54 +1,44 @@
-# AGENTS.md — Orientation for Agents
+# AGENTS.md
 
-You are reading the Caret^ repository. Here is how to navigate it.
+This repo rebuilds from the cheatsheet outward.
 
----
+## Source Of Truth Order
 
-## What this repo is
+Use this order when interpreting or editing the repo:
 
-Caret^ is a portable directive notation for agent orchestration. Four symbols, a handful of control knobs, composition rules. The notation lives in Markdown files and tells agents what to do without tying you to a specific runtime.
+1. `/caret-cheatsheet.md`
+2. `/notation/SPEC.md`
+3. `/notation/SEMANTICS.md`
+4. `/notation/INTERPRETATION.md`
+5. `/notation/SECURITY.md`
+6. `/notation/DECISIONS.md`
 
----
+If a downstream file conflicts with that order, the downstream file is wrong.
 
-## What is canonical
+## Working Rules
 
-The `notation/` folder is the source of truth. If anything in the repo conflicts with `notation/SPEC.md`, the spec wins.
+- Treat `/caret-cheatsheet.md` as the product artifact.
+- Treat `/notation/` as the canonical expansion of that artifact.
+- Treat `glossary/`, `examples/`, `patterns/`, and `research/` as downstream support surfaces.
+- Do not infer canonical meaning from patterns, examples, or research if they conflict with the cheatsheet or notation docs.
+- If the cheatsheet changes, review every notation-bearing file in the repo.
 
-| Folder | Status | Purpose |
-|--------|--------|---------|
-| `notation/` | **Canonical** | The notation spec, principles, semantics, decisions |
-| `field-guide/` | Explanatory | Practitioner support — glossary, patterns, examples |
-| `research/` | Background | Evidence, comparisons, case studies |
-| `governance/` | Process | How contributions are reviewed |
+## Editing Guidance
 
----
+- Keep the cheatsheet compact.
+- Keep notation docs precise, restrained, and implementation-aware.
+- Keep this file operational rather than promotional.
+- Stronger brand voice is acceptable in outward-facing docs such as `/README.md`, pattern docs, and manifesto-style writing.
+- Do not add new syntax without updating the canonical notation docs and recording the decision.
 
-## How to navigate
+## Interpretation And Safety
 
-1. **Understand the notation** → `notation/SPEC.md`
-2. **See it in action** → `notation/examples/`
-3. **Learn the vocabulary** → `field-guide/glossary/`
-4. **Find orchestration patterns** → `field-guide/patterns/`
-5. **Convert an existing skill** → `caret-it.md` (root)
+- The notation signals intent. It does not grant permission.
+- Preserve literal examples inside fenced code blocks.
+- Keep trust-boundary guidance explicit.
+- Do not silently invent unresolved targets, workers, personas, or skills.
+- Prefer exact repo-relative targets in examples when precision matters.
 
----
+## Rebuild Rule
 
-## Key files at root
-
-| File | For whom |
-|------|----------|
-| `README.md` | Humans landing on the repo |
-| `AGENTS.md` | You (agents navigating the repo) |
-| `caret-cheatsheet.md` | Quick reference — copy-paste and go |
-| `caret-it.md` | Skill for converting existing files to Caret^ |
-| `MANIFESTO.md` | Why this exists (philosophy) |
-| `CONTRIBUTING.md` | How to contribute |
-
----
-
-## Principles for working in this repo
-
-- The notation is the product. Everything else supports it.
-- Clarity over cleverness. Short over verbose.
-- If you're generating content for this repo, match the voice: crisp, precise, dry, no fluff.
-- Load only what you need. This repo practices what it preaches about context management.
+Use older or archived material for structure only when needed. Do not treat legacy wording, semantics, examples, or internal explanation as authoritative.

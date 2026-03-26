@@ -1,20 +1,20 @@
 # Notation
 
-The canonical specification for Caret^ syntax.
+`/caret-cheatsheet.md` is the portable artifact.
 
-Everything in this folder is normative. If it conflicts with the field guide, the notation wins.
+This directory is the canonical expansion of that artifact. It makes the model explicit enough to document, implement, test, and review without turning Caret^ into a bloated language.
 
-## Files
+Read order:
 
-| File | What it covers |
-|------|---------------|
-| [SPEC.md](SPEC.md) | Syntax, primitives, composition rules, control knobs |
-| [PRINCIPLES.md](PRINCIPLES.md) | Design principles behind the notation |
-| [SEMANTICS.md](SEMANTICS.md) | What constructs mean — disambiguation and edge cases |
-| [PROFILES.md](PROFILES.md) | Usage profiles: file-first, chat-safe, minimal |
-| [DECISIONS.md](DECISIONS.md) | Design decisions and their rationale |
-| [examples/](examples/) | Notation usage examples |
+1. `SPEC.md`
+2. `SEMANTICS.md`
+3. `INTERPRETATION.md`
+4. `SECURITY.md`
+5. `DECISIONS.md`
 
-## Reading order
+Working rules:
 
-Start with SPEC.md. Everything else supports it.
+- The cheatsheet stays small. These docs carry the supporting detail.
+- Support docs clarify the cheatsheet. They do not override it.
+- If the cheatsheet changes, every notation-bearing file in the repo must be reviewed.
+- Glossary, examples, and patterns are downstream of this directory.
