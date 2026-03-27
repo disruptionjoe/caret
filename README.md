@@ -37,6 +37,11 @@ Everything else exists to support that portable artifact:
 - `research/` supports decisions without becoming the source of truth
 - `governance/` records how changes get made
 
+The split matters:
+
+- research holds evidence
+- governance holds the rules that evidence must pass through before canon or core workflow assets change
+
 The order matters. The cheatsheet leads. Canon follows. Everything else is downstream.
 
 ## Design Stance

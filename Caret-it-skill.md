@@ -56,6 +56,32 @@ Keep prose when the source is carrying:
 
 Do not turn a good decision table into decorative notation.
 
+## Shared Contract Gate
+
+Some files bundle two layers together:
+
+- a shared runtime contract
+- a local workflow
+
+Examples of shared contract material:
+
+- standard preambles
+- shared voice rules
+- common telemetry or logging blocks
+- universal AskUserQuestion formatting
+- repeated contributor or escalation policy
+
+If that shared layer appears to be repo-wide or tool-wide boilerplate:
+
+- name it explicitly as shared contract
+- do not pretend all of its removal is a local notation win
+- evaluate the workflow layer separately from the contract layer
+
+In many cases, the right rewrite is hybrid:
+
+- inherit or reference the shared contract
+- convert the local workflow spine
+
 ## Canon Alignment Gate
 
 Some source files are not just verbose. They are stale.
@@ -130,6 +156,7 @@ If the harness can spawn or simulate multiple perspectives cleanly, use that. If
 - Do not convert literal templates, example payloads, or sample headers into live notation.
 - Do not mint one-off directives just because a heading exists. Use directives when they carry real operational signal.
 - Do not treat semantic normalization as a pure compression win.
+- Do not treat shared-contract extraction as if it were entirely local workflow compression.
 - Do compress duplicated setup, repeated tone instructions, and stacked prose knobs when Caret^ can carry them directly.
 - Do expect lower compression when the source is already dense with concrete file paths, metadata fields, and decision tables.
 - Do expect strong compression in complex flow files if the rewrite keeps schemas and example payloads literal.
@@ -169,6 +196,7 @@ Call out:
 - what stayed prose
 - any unresolved harness assumptions
 - whether canon normalization was required
+- whether shared contract extraction was a major factor
 
 ### Adoption Call
 
