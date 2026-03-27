@@ -44,6 +44,15 @@ The split matters:
 
 The order matters. The cheatsheet leads. Canon follows. Everything else is downstream.
 
+This repo is also supreme over surrounding material.
+
+- archives do not outrank it
+- drafts do not outrank it
+- external repos do not outrank it
+- examples, patterns, and research do not outrank canon
+
+Outside material can inform the repo. It does not overrule the repo.
+
 ## Design Stance
 
 Caret^ keeps the structure tight and the vocabulary open.

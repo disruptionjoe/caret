@@ -55,3 +55,9 @@ Interpretation behavior and trust boundaries belong in canonical notation docs, 
 ### D011: Repo-Wide Review Trigger
 
 When the cheatsheet changes, every notation-bearing doc, example, and pattern in the repo must be re-reviewed.
+
+### D012: Repo Supremacy
+
+The live repo canon outranks external repos, research artifacts, examples, patterns, drafts, and archived material.
+
+Those sources may inform changes. They do not override current canon unless canon is deliberately updated.

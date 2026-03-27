@@ -12,6 +12,30 @@ Governance decides what must happen before canonical or workflow-critical assets
 
 1. Changes to `/caret-cheatsheet.md` trigger a repo-wide notation review.
 2. Changes to `/Caret-it-skill.md` must follow the Caret-it evolution loop.
+3. The live repo canon outranks archives, drafts, research, examples, patterns, and external source material.
+
+## Repo Supremacy Rule
+
+When source material conflicts, use this precedence:
+
+1. `/caret-cheatsheet.md`
+2. `/notation/`
+3. other live repo docs governed by that canon
+4. research and external evidence
+5. archives and legacy material
+
+Operational meaning:
+
+- research may support a change, but it does not make the change by itself
+- external repos may inspire a pattern, but they do not redefine Caret^
+- examples and patterns may demonstrate the canon, but they do not set it
+- archived or draft wording may help with structure, but not authority
+
+If a contributor finds a conflict, the contributor should:
+
+1. follow the live repo canon
+2. mark the conflicting material as stale, downstream, or informational
+3. update the repo only through the normal canonical change path
 
 ## Caret-it Evolution Rule
 
