@@ -16,6 +16,15 @@ More giant prompt blocks trying to force discipline through sheer bulk.
 
 Caret^ is the counter-move.
 
+**Use GStack to reduce your token usage by over 90%.**
+
+That is not a slogan.
+That is what the external GStack pass showed: **95.8% shorter overall** across three large skills once the shared runtime contract was separated from the workflow spine.
+
+<p align="center">
+  <img src="assets/gstack-caret-savings.svg" alt="GStack Caret savings results" width="900" />
+</p>
+
 It gives you a small semantic layer for the parts of a workflow that actually repeat:
 
 - hats

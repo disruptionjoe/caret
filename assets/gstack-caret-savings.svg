@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">GStack Caret savings</title>
+  <desc id="desc">Results table showing large token savings when Caret is applied to three GStack skills.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1115" />
+      <stop offset="100%" stop-color="#171a20" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d65f24" />
+      <stop offset="100%" stop-color="#f18a36" />
+    </linearGradient>
+    <style>
+      .title { font: 700 52px 'Segoe UI', Arial, sans-serif; fill: #f6f3ee; }
+      .sub { font: 400 24px 'Segoe UI', Arial, sans-serif; fill: #cfc6bc; }
+      .head { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #f6f3ee; }
+      .cell { font: 500 22px 'Segoe UI', Arial, sans-serif; fill: #ece5dc; }
+      .pill { font: 700 20px 'Consolas', 'SFMono-Regular', monospace; fill: #f7efe5; }
+      .metric { font: 700 88px 'Segoe UI', Arial, sans-serif; fill: url(#accent); }
+      .metricSub { font: 600 24px 'Segoe UI', Arial, sans-serif; fill: #f0b487; letter-spacing: 2px; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="760" rx="28" fill="url(#bg)" />
+
+  <text x="76" y="96" class="title">GStack Caret Savings</text>
+  <text x="76" y="136" class="sub">Hybrid Caret rewrites across three large GStack skills.</text>
+
+  <text x="1080" y="120" text-anchor="end" class="metric">95.8%</text>
+  <text x="1080" y="156" text-anchor="end" class="metricSub">SHORTER OVERALL</text>
+
+  <g transform="translate(76,196)">
+    <rect width="1248" height="456" rx="20" fill="#111419" stroke="#343a44" stroke-width="2" />
+    <line x1="0" y1="94" x2="1248" y2="94" stroke="#343a44" stroke-width="2" />
+    <line x1="300" y1="0" x2="300" y2="456" stroke="#343a44" stroke-width="2" />
+    <line x1="615" y1="0" x2="615" y2="456" stroke="#343a44" stroke-width="2" />
+    <line x1="918" y1="0" x2="918" y2="456" stroke="#343a44" stroke-width="2" />
+    <line x1="1060" y1="0" x2="1060" y2="456" stroke="#343a44" stroke-width="2" />
+    <line x1="0" y1="215" x2="1248" y2="215" stroke="#2a3038" stroke-width="2" />
+    <line x1="0" y1="336" x2="1248" y2="336" stroke="#2a3038" stroke-width="2" />
+
+    <text x="38" y="58" class="head">Skill</text>
+    <text x="338" y="58" class="head">Original Tokens</text>
+    <text x="653" y="58" class="head">Rewritten Tokens</text>
+    <text x="956" y="58" class="head">Saved</text>
+    <text x="1096" y="58" class="head">Shorter</text>
+
+    <g transform="translate(28,124)">
+      <rect width="182" height="48" rx="14" fill="#1d222b" />
+      <text x="20" y="31" class="pill">design-review</text>
+      <text x="346" y="31" class="cell" text-anchor="middle">14710</text>
+      <text x="662" y="31" class="cell" text-anchor="middle">773</text>
+      <text x="923" y="31" class="cell" text-anchor="middle">13937</text>
+      <text x="1065" y="31" class="cell" text-anchor="middle">94.7%</text>
+    </g>
+
+    <g transform="translate(28,245)">
+      <rect width="96" height="48" rx="14" fill="#1d222b" />
+      <text x="20" y="31" class="pill">ship</text>
+      <text x="346" y="31" class="cell" text-anchor="middle">24009</text>
+      <text x="662" y="31" class="cell" text-anchor="middle">756</text>
+      <text x="923" y="31" class="cell" text-anchor="middle">23253</text>
+      <text x="1065" y="31" class="cell" text-anchor="middle">96.9%</text>
+    </g>
+
+    <g transform="translate(28,366)">
+      <rect width="250" height="48" rx="14" fill="#1d222b" />
+      <text x="20" y="31" class="pill">plan-eng-review</text>
+      <text x="346" y="31" class="cell" text-anchor="middle">15663</text>
+      <text x="662" y="31" class="cell" text-anchor="middle">754</text>
+      <text x="923" y="31" class="cell" text-anchor="middle">14909</text>
+      <text x="1065" y="31" class="cell" text-anchor="middle">95.2%</text>
+    </g>
+  </g>
+</svg>
