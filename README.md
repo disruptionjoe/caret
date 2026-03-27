@@ -4,12 +4,6 @@
 
 # Caret^
 
-<p align="center">
-  [Caret logo here]
-</p>
-
-# Caret^
-
 **Caret^ cuts repeated agent instructions down to compact notation.**  
 Across our sample set, rewriting agent skill and persona files using Caret notation reduced prompt length by **95.8% overall**.
 
