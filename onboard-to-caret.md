@@ -7,6 +7,7 @@ The goal is simple:
 - get Caret^ working today
 - avoid loading the whole repo into the hot path
 - make the cheatsheet the thing your platform actually honors
+- give you one clean default install path before you branch into platform specifics
 
 ## The Recommendation
 
@@ -74,33 +75,23 @@ Examples:
 - a project-level instruction block
 - a harness repo module that loads before task-specific skills
 
-### Step 3: Use This Scaffold
+If you want the recommended starting point, use `/platform/caret-core-starter.md`.
 
-Paste this at the top of that platform-level skill:
+If you need a platform-shaped wrapper after that, use `/platform/README.md`.
 
-```markdown
-# Caret^ Core
+### Step 3: Load The Core Starter
 
-Load `caret-cheatsheet.md` as the active semantic signal layer for Markdown instructions.
+Open `/platform/caret-core-starter.md`.
 
-Source of truth order:
-1. `caret-cheatsheet.md`
-2. local `notation/` docs when present
-3. downstream examples, patterns, and research only if they agree with canon
+Use the starter block there as your base install.
 
-Working rules:
-- `^` = directive
-- `^^` = hat, same worker
-- `^^^` = worker boundary
-- `^^^^` = fresh-eyes boundary
-- indentation scopes downward
-- fenced code blocks are literal
-- if supporting material conflicts with canon, canon wins
-```
+If your platform can load external files, point that block at the local `caret-cheatsheet.md`.
 
-If your platform can load external files, point that scaffold at the local `caret-cheatsheet.md`.
+If your platform cannot load external files, paste the full contents of `/caret-cheatsheet.md` directly under that block.
 
-If your platform cannot load external files, paste the full contents of `/caret-cheatsheet.md` directly under that scaffold.
+If your platform needs a platform-specific wrapper shape, adapt from `/platform/README.md` after the core starter is in place.
+
+If your platform uses plugins or connectors to mount docs, check `/platform/plugin-loader-starter.md` before you improvise.
 
 ### Step 4: Load It Early
 
@@ -185,6 +176,8 @@ Use these next:
 
 1. `/caret-cheatsheet.md`
 2. `/examples/README.md`
-3. `/Caret-it-skill.md`
+3. `/platform/caret-core-starter.md`
+4. `/Caret-it-skill.md`
+5. `/platform/README.md` if you need a platform-specific wrapper
 
 That order keeps the canon in front and the experiments behind it.

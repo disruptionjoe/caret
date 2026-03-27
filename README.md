@@ -12,11 +12,15 @@ If you are new, use `/onboard-to-caret.md`.
 
 If you only need the product, use `/caret-cheatsheet.md`.
 
+If you want the recommended platform install, use `/platform/caret-core-starter.md`.
+
 If you need the canon behind it, read `/notation/`.
 
 If you want to compress an existing skill or instruction-heavy Markdown file into Caret^, use `/Caret-it-skill.md`.
 
 If you expect to use Caret^ repeatedly, promote it to a platform-level skill or instruction layer instead of pasting it into one chat at a time.
+
+If you need platform-specific starter variants for that installation, use `/platform/README.md`.
 
 Read order:
 
