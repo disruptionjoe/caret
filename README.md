@@ -4,7 +4,89 @@
 
 # Caret^
 
-Small marks. Hard edges. Clear intent.
+<p align="center">
+  [Caret logo here]
+</p>
+
+# Caret^
+
+**Caret^ cuts repeated agent instructions down to compact notation.**  
+Across our sample set, rewriting agent skill and persona files using Caret notation reduced prompt length by **95.8% overall**.
+
+This is for you if you ever draft or use Markdown files as agent skills or personas. If you design harnesses, it is a no brainer. 
+
+## Benefits
+
+**Lower cost**
+* Less tokens used. By a lot.
+* Less API tokens crushed by experiments.
+* Less of your time saying the same thing over and over. 
+
+**Better results**
+* More deterministic and consistent. Period.
+* Less context anxiety from overfilled context windows
+* Write faster with more expressive control and confidence
+
+**This is not just about saving tokens for the sake of saving tokens.**
+
+Less prompt bulk means less money burned on repetition, less drag on performance, and less time spent retyping the same workflow moves in full sentences. It also gives you something normal writing does badly with agents: a compact way to express intensity, structure, and operational intent without writing a paragraph every time.
+
+In speech, you have volume and tone. In normal prompting, you mostly have sprawl.  
+
+**Caret^ gives you a shorthand for precision.**
+
+Most prompt bloat comes from something obvious:
+people keep restating recurring workflow instructions in full sentences.
+
+Use this mindset.  
+Go deeper.  
+Be more skeptical.  
+Verify the claims.  
+Hand this off.  
+Reset context.
+
+Useful? Yes.  
+Efficient? Not even slightly.
+
+**Caret^ replaces repetition with compact markers.**
+
+## Before
+
+    Use a reviewer mindset. Be very skeptical, much more than you usually are. Go deeper than normal. If this needs a separate pass, hand it to a researcher. Verify key claims. Treat the next section as a clean restart.
+
+## After
+
+    ^^reviewer ^skeptical8 ^depth8
+    ^^^researcher
+    ^verification8
+    ^^^^
+
+Same intent.  
+Far fewer tokens.  
+Better signal.  
+Less waste.
+
+## Where the 95.8% came from
+
+We sampled both our own material and random skills from Garry Tan’s GStack, then compared the original versions to Caret-style rewrites.
+
+**Average reduction across the sample: 95.8%.**
+
+[Add GStack savings image here]
+
+## Start fast
+
+1. Read `caret-cheatsheet.md`.
+2. Copy-paste it into your system or load it into your harness so your agent always sees it.
+3. Load the `caret-it-skill.md` alongside any skill from your library.
+4. Your agent can immediately rewrite it in Caret^ and tell you how many tokens you save.
+
+That is the point: it works immediately.
+
+From there, you can customize local commands, add your own patterns, and shape it to your workflow.  
+But you do not need to do any of that to start getting the benefit.
+
+## Caret^
 
 Caret^ is a semantic signal layer for agent workflows in Markdown. It gives you a compact way to signal pressure, scope, stance, separation, and operating intent without dragging a giant prompt framework behind it.
 
