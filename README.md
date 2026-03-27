@@ -8,11 +8,15 @@ It does not tell the system how to work. It tells the system what kind of work y
 
 ## Start Here
 
+If you are new, use `/onboard-to-caret.md`.
+
 If you only need the product, use `/caret-cheatsheet.md`.
 
 If you need the canon behind it, read `/notation/`.
 
 If you want to compress an existing skill or instruction-heavy Markdown file into Caret^, use `/Caret-it-skill.md`.
+
+If you expect to use Caret^ repeatedly, promote it to a platform-level skill or instruction layer instead of pasting it into one chat at a time.
 
 Read order:
 
