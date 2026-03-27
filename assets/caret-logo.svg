@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 560" role="img" aria-labelledby="title desc">
+  <title id="title">Caret logo</title>
+  <desc id="desc">Orange teardrop-shaped mark with a right-side cutout and a small caret below.</desc>
+  <defs>
+    <linearGradient id="caretGradient" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#c95b22" />
+      <stop offset="55%" stop-color="#df6c29" />
+      <stop offset="100%" stop-color="#f28b36" />
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#caretGradient)"
+    fill-rule="evenodd"
+    d="M160 26
+       C178 26 193 40 198 57
+       L270 260
+       C294 329 296 416 255 483
+       C216 547 102 549 58 484
+       C19 425 21 343 49 266
+       L123 57
+       C129 40 143 26 160 26
+       Z
+       M198 255
+       C185 255 175 265 175 278
+       L175 294
+       C175 307 185 317 198 317
+       L294 317
+       L294 255
+       Z" />
+  <path
+    d="M118 454 L160 510 L202 454"
+    fill="none"
+    stroke="url(#caretGradient)"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="26" />
+</svg>

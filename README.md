@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/caret-logo.svg" alt="Caret^ logo" width="180" />
+</p>
+
 # Caret^
 
 Small marks. Hard edges. Clear intent.
@@ -17,6 +21,8 @@ If you want the recommended platform install, use `/platform/caret-core-starter.
 If you need the canon behind it, read `/notation/`.
 
 If you want the philosophy behind it, read `/MANIFESTO.md`.
+
+If you want the case for using it, read `/why-to-use-caret.md`.
 
 If you want to compress an existing skill or instruction-heavy Markdown file into Caret^, use `/Caret-it-skill.md`.
 
