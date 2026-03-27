@@ -2,8 +2,8 @@
 
 ## Source
 
-- original: `C:\Users\joe\JoeEA\ea-os\skills\memory.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-tests\memory-rewrite.md`
+- original: local private skill `memory.md`
+- rewrite: `memory-rewrite.md`
 - token method: estimated with `ceiling(character_count / 4)` because no local tokenizer surface was exposed in this test
 
 ## Findings
@@ -14,7 +14,7 @@
 
 ## Caret^ Rewrite
 
-Full rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-tests\memory-rewrite.md`
+Full rewrite: `memory-rewrite.md`
 
 ## Compression Report
 

@@ -13,6 +13,7 @@ Governance decides what must happen before canonical or workflow-critical assets
 1. Changes to `/caret-cheatsheet.md` trigger a repo-wide notation review.
 2. Changes to `/Caret-it-skill.md` must follow the Caret-it evolution loop.
 3. The live repo canon outranks archives, drafts, research, examples, patterns, and external source material.
+4. Public-facing docs and research bundles should avoid absolute local machine paths and private workspace identifiers when repo-relative or generic references are enough.
 
 ## Repo Supremacy Rule
 
@@ -57,3 +58,12 @@ Any meaningful update to that skill should:
 The workflow itself, the rounds, the external trials, and the report bundles belong in `research/`.
 
 The rule that says future Caret-it changes must use that workflow belongs here.
+
+## Public Reporting Hygiene
+
+When a repo artifact may be published or shared:
+
+- prefer repo-relative paths over absolute local paths
+- prefer source URLs for external material when practical
+- describe private local sources generically when exact local layout is not important
+- do not leak local usernames, home directories, or private workspace names just to show provenance

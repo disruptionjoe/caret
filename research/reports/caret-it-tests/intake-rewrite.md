@@ -89,5 +89,5 @@ If this is a quick mobile capture such as "log this," stop after capture and con
 ^ask
 Otherwise ask once: "Want me to review this now, or hold it?"
 
-- if Joe says "now," hand off to `ea-os/skills/review.md`
+- if Joe says "now," hand off to the paired review skill
 - if Joe says "hold" or gives no response, stop

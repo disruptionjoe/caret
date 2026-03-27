@@ -2,8 +2,8 @@
 
 ## Source
 
-- original: `C:\Users\joe\JoeEA\ea-os\skills\improve.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-optimization\round-2\improve-rewrite.md`
+- original: local private skill `improve.md`
+- rewrite: `improve-rewrite.md`
 - token method: `ceiling(character_count / 4)`
 
 ## Findings

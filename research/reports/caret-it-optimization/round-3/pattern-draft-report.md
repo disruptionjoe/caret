@@ -2,8 +2,8 @@
 
 ## Source
 
-- original: `C:\Users\joe\JoeEA\ea-os\skills\pattern-draft.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-optimization\round-3\pattern-draft-rewrite.md`
+- original: local private skill `pattern-draft.md`
+- rewrite: `pattern-draft-rewrite.md`
 - token method: `ceiling(character_count / 4)`
 
 ## Findings

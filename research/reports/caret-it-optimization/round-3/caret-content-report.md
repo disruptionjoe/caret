@@ -2,8 +2,8 @@
 
 ## Source
 
-- original: `C:\Users\joe\JoeEA\ea-os\skills\caret-content.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-optimization\round-3\caret-content-rewrite.md`
+- original: local private skill `caret-content.md`
+- rewrite: `caret-content-rewrite.md`
 - token method: `ceiling(character_count / 4)`
 
 ## Findings

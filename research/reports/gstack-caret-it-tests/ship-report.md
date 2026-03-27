@@ -4,8 +4,8 @@
 
 - repo: `https://github.com/garrytan/gstack`
 - source file: `https://raw.githubusercontent.com/garrytan/gstack/main/ship/SKILL.md`
-- local copy: `C:\Users\joe\JoeEA\caret-repo\research\reports\gstack-caret-it-tests\raw\ship-SKILL.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\gstack-caret-it-tests\ship-rewrite.md`
+- local copy: `raw/ship-SKILL.md`
+- rewrite: `ship-rewrite.md`
 - token method: `ceiling(character_count / 4)`
 
 ## Findings

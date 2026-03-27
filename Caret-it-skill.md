@@ -160,6 +160,8 @@ If the harness can spawn or simulate multiple perspectives cleanly, use that. If
 - Do compress duplicated setup, repeated tone instructions, and stacked prose knobs when Caret^ can carry them directly.
 - Do expect lower compression when the source is already dense with concrete file paths, metadata fields, and decision tables.
 - Do expect strong compression in complex flow files if the rewrite keeps schemas and example payloads literal.
+- Do use repo-relative paths, source URLs, or generic labels in public-facing reports instead of absolute local machine paths.
+- Do avoid leaking local usernames, home directories, private workspace names, or machine-specific folder structure unless the task explicitly requires them.
 
 ## Directive Quality Bar
 
@@ -197,6 +199,7 @@ Call out:
 - any unresolved harness assumptions
 - whether canon normalization was required
 - whether shared contract extraction was a major factor
+- whether any source references were generalized for public-safe reporting
 
 ### Adoption Call
 

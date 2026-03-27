@@ -1,6 +1,6 @@
 # Caret-it Skill Test Runs
 
-Three live skills from `C:\Users\joe\JoeEA\ea-os\skills\` were sampled at random and run through the current `Caret-it-skill.md` process:
+Three live skills from a local private skill repo were sampled at random and run through the current `Caret-it-skill.md` process:
 
 - `memory.md`
 - `review.md`

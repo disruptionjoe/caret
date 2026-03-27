@@ -4,8 +4,8 @@
 
 - repo: `https://github.com/garrytan/gstack`
 - source file: `https://raw.githubusercontent.com/garrytan/gstack/main/plan-eng-review/SKILL.md`
-- local copy: `C:\Users\joe\JoeEA\caret-repo\research\reports\gstack-caret-it-tests\raw\plan-eng-review-SKILL.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\gstack-caret-it-tests\plan-eng-review-rewrite.md`
+- local copy: `raw/plan-eng-review-SKILL.md`
+- rewrite: `plan-eng-review-rewrite.md`
 - token method: `ceiling(character_count / 4)`
 
 ## Findings

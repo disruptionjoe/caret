@@ -2,8 +2,8 @@
 
 ## Source
 
-- original: `C:\Users\joe\JoeEA\ea-os\skills\priority.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-optimization\round-2\priority-rewrite.md`
+- original: local private skill `priority.md`
+- rewrite: `priority-rewrite.md`
 - token method: `ceiling(character_count / 4)`
 
 ## Findings

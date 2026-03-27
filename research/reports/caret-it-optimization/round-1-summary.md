@@ -2,9 +2,9 @@
 
 Round 1 used the initial live-skill sample already captured in:
 
-- `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-tests\memory-report.md`
-- `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-tests\review-report.md`
-- `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-tests\intake-report.md`
+- `../caret-it-tests/memory-report.md`
+- `../caret-it-tests/review-report.md`
+- `../caret-it-tests/intake-report.md`
 
 ## Shape
 

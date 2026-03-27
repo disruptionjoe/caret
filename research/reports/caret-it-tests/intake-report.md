@@ -2,19 +2,19 @@
 
 ## Source
 
-- original: `C:\Users\joe\JoeEA\ea-os\skills\intake.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-tests\intake-rewrite.md`
+- original: local private skill `intake.md`
+- rewrite: `intake-rewrite.md`
 - token method: estimated with `ceiling(character_count / 4)` because no local tokenizer surface was exposed in this test
 
 ## Findings
 
 - The biggest gain came from turning repeated "what to do" scaffolding into `^capture`, `^normalize`, `^rules`, `^update`, and `^ask` blocks.
 - The preview-header templates stayed literal because they are examples, not live instruction.
-- The main unresolved harness assumption is the handoff model to `ea-os/skills/review.md` and the expected schema for `data/state.json`.
+- The main unresolved harness assumption is the handoff model to the paired review skill and the expected schema for `data/state.json`.
 
 ## Caret^ Rewrite
 
-Full rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-tests\intake-rewrite.md`
+Full rewrite: `intake-rewrite.md`
 
 ## Compression Report
 

@@ -2,15 +2,15 @@
 
 ## Source
 
-- original: `C:\Users\joe\JoeEA\ea-os\skills\queue-sync.md`
-- rewrite: `C:\Users\joe\JoeEA\caret-repo\research\reports\caret-it-optimization\round-3\queue-sync-rewrite.md`
+- original: local private skill `queue-sync.md`
+- rewrite: `queue-sync-rewrite.md`
 - token method: `ceiling(character_count / 4)`
 
 ## Findings
 
 - The source compressed well because it repeats scan, classify, report, add, and log phases with heavy narration.
 - The row-format logic stayed visible, which kept the rewrite operational rather than vague.
-- The main harness assumption is accurate detection of already-queued plans and stable parsing of `ea-os/NIGHT-FACTORY.md`.
+- The main harness assumption is accurate detection of already-queued plans and stable parsing of the queue source file.
 
 ## Adoption Call
 
