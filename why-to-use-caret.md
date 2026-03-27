@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/caret-logo.svg" alt="Caret^ logo" width="160" />
+  <img src="assets/caret-logo.png" alt="Caret^ logo" width="160" />
 </p>
 
 # Why Use Caret^
