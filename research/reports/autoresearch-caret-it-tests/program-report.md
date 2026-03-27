@@ -22,10 +22,10 @@ See `program-rewrite.md`.
 ## Compression Report
 
 - Original token count: `1789`
-- Rewritten token count: `1039`
-- Tokens saved: `750`
-- Percentage shorter: `41.9%`
-- Projected savings over 1,000 runs: `750000`
+- Rewritten token count: `983`
+- Tokens saved: `806`
+- Percentage shorter: `45.1%`
+- Projected savings over 1,000 runs: `806000`
 
 Token counts use the fallback estimator `ceiling(character_count / 4)`.
 
@@ -34,7 +34,7 @@ Token counts use the fallback estimator `ceiling(character_count / 4)`.
 ```text
 Before:
 What you CAN do:
-- Modify `train.py` — this is the only file you edit.
+- Modify `train.py` - this is the only file you edit.
 
 What you CANNOT do:
 - Modify `prepare.py`.

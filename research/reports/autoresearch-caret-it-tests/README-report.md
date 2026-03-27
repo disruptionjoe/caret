@@ -21,10 +21,10 @@ See `README-rewrite.md` for the suggested hybrid excerpt.
 ## Compression Report
 
 - Original token count: `2033`
-- Rewritten token count: `315`
-- Tokens saved: `1718`
-- Percentage shorter: `84.5%`
-- Projected savings over 1,000 runs: `1718000`
+- Rewritten token count: `241`
+- Tokens saved: `1792`
+- Percentage shorter: `88.1%`
+- Projected savings over 1,000 runs: `1792000`
 
 Token counts use the fallback estimator `ceiling(character_count / 4)`.
 

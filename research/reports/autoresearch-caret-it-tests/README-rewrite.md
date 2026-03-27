@@ -10,7 +10,7 @@ What Caret^ can tighten is the operator-facing handoff section.
 
 Replace the current "Running the agent" block with something like this:
 
-```markdown
+````markdown
 ## Running the agent
 
 Load `program.md` as the live operator surface.
@@ -35,7 +35,7 @@ Do setup first.
 Establish the baseline.
 Then start the experiment loop.
 ```
-```
+````
 
 ## Why Only This
 

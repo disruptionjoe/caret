@@ -22,9 +22,9 @@ So this bundle is a boundary study, not a three-skill comparison like the earlie
 
 | Surface | Original Tokens | Rewritten Tokens | Saved | Shorter | Adoption |
 | --- | ---: | ---: | ---: | ---: | --- |
-| `program.md` | 1789 | 1039 | 750 | 41.9% | adopt |
-| `README.md` | 2033 | 315 | 1718 | 84.5% | keep mostly prose |
-| **Total** | **3822** | **1354** | **2468** | **64.6%** | **boundary study** |
+| `program.md` | 1789 | 983 | 806 | 45.1% | adopt |
+| `README.md` | 2033 | 241 | 1792 | 88.1% | keep mostly prose |
+| **Total** | **3822** | **1224** | **2598** | **68.0%** | **boundary study** |
 
 ## What Changed In The Model
 
