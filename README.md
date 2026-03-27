@@ -6,9 +6,20 @@
 
 **Caret^ cuts repeated agent instructions down to compact notation.**  
 
-Across our sample set, rewriting agent skill and persona files using Caret notation reduced prompt length by **95.8% overall**.
+Across our sample set, prompt length was reduced by 95.8% by rewriting agent skill and persona files using Caret notation.
 
 This is for you if you ever draft or use Markdown files as agent skills or personas. If you design harnesses, it is a no brainer. 
+
+## Before
+
+    Use a reviewer mindset. Be very skeptical, much more than you usually are. Go deeper than normal. If this needs a separate pass, hand it to a researcher. Verify key claims. Treat the next section as a clean restart.
+
+## After
+
+    ^^reviewer ^skeptical8 ^depth8
+    ^^^researcher
+    ^verification8
+    ^^^^
 
 ## Benefits
 
@@ -45,29 +56,13 @@ Efficient? Not even slightly.
 
 **Caret^ replaces repetition with compact markers.**
 
-## Before
-
-    Use a reviewer mindset. Be very skeptical, much more than you usually are. Go deeper than normal. If this needs a separate pass, hand it to a researcher. Verify key claims. Treat the next section as a clean restart.
-
-## After
-
-    ^^reviewer ^skeptical8 ^depth8
-    ^^^researcher
-    ^verification8
-    ^^^^
-
-Same intent.  
-Far fewer tokens.  
-Better signal.  
-Less waste.
-
 ## Where the 95.8% came from
 
 We sampled both our own material and random skills from Garry Tan’s GStack, then compared the original versions to Caret-style rewrites.
 
 **Average reduction across the sample: 95.8%.**
 
-[Add GStack savings image here]
+![Gstack token comparison before and after](assets/gstack-caret-savings.svg)
 
 ## Start fast
 
