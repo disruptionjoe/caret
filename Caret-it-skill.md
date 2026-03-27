@@ -25,6 +25,55 @@ Not everything belongs in Caret^.
 
 Keep explanatory prose when prose is doing real work. Convert the live signal layer. Do not flatten nuance just to chase compression.
 
+## Where Caret^ Usually Wins
+
+Caret^ tends to pay off when the source file repeats operating mode over and over.
+
+High-yield zones:
+
+- repeated route logic
+- repeated rule blocks
+- repeated update or closeout steps
+- handoff points
+- gate decisions
+- stance or pressure knobs that are currently described in prose
+- repeated step framing inside complex orchestration files
+- recurring analytic lenses that can cleanly map to hats
+
+This is where the notation earns its keep.
+
+## Where Prose Should Usually Stay
+
+Some material should stay plain.
+
+Keep prose when the source is carrying:
+
+- nuanced explanation
+- exceptions that need human judgment
+- trust-boundary warnings
+- example templates meant to stay literal
+- concrete schemas, metadata fields, or destination tables that are already compact
+
+Do not turn a good decision table into decorative notation.
+
+## Canon Alignment Gate
+
+Some source files are not just verbose. They are stale.
+
+If a file already contains Caret-like semantics, examples, or notation guidance that conflicts with current canon:
+
+- stop treating it as a pure compression task
+- normalize the semantics first
+- then evaluate the rewrite
+
+Examples:
+
+- old meanings for `^^` and `^^^`
+- deprecated dot-based forms
+- examples that encode now-invalid worker behavior
+
+If normalization is required, say so explicitly in the output. Do not count semantic repair as if it were only a notation win.
+
 ## Five-Lens Review
 
 Run the target through five lenses before rewriting:
@@ -49,28 +98,64 @@ If the harness can spawn or simulate multiple perspectives cleanly, use that. If
 ## Rewrite Process
 
 1. Read the full target file before rewriting anything.
-2. Separate live instructions from explanatory or historical prose.
-3. Extract the non-negotiables:
+2. Check for canon conflicts or stale notation semantics.
+3. Separate live instructions from explanatory or historical prose.
+4. Mark each section as one of these before rewriting:
+   - live signal layer
+   - literal example or template
+   - reference table or schema
+   - explanatory prose
+5. Extract the non-negotiables:
    - required constraints
    - safety rules
    - target files or handles
    - approval boundaries
    - reporting requirements
-4. Run the five-lens review.
-5. Rewrite the live instruction layer in Caret^ where it increases clarity or compression.
-6. Keep supporting prose outside the notation when the prose carries real meaning.
-7. Preserve exact file references when precision matters.
-8. Do not invent canonical syntax that the current Caret^ docs do not support.
-9. If the user asked for an in-place rewrite, update the file. Otherwise, present a proposed rewrite.
+6. Run the five-lens review.
+7. Rewrite the live instruction layer in Caret^ where it increases clarity or compression.
+8. Keep supporting prose outside the notation when the prose carries real meaning.
+9. Keep literal examples and templates inside fenced code blocks.
+10. Preserve exact file references when precision matters.
+11. Do not invent canonical syntax that the current Caret^ docs do not support.
+12. If the user asked for an in-place rewrite, update the file. Otherwise, present a proposed rewrite.
 
 ## Rewrite Rules
 
 - Do not force every sentence into Caret^.
+- Do not force a full-file conversion if the right answer is hybrid.
 - Do not invent targets that the source file never implied.
 - Do not hide safety rules inside vague notation.
 - Do not use named targets when the source clearly points to an exact file.
 - Do not drop operational detail that a real harness or human still needs.
+- Do not convert literal templates, example payloads, or sample headers into live notation.
+- Do not mint one-off directives just because a heading exists. Use directives when they carry real operational signal.
+- Do not treat semantic normalization as a pure compression win.
 - Do compress duplicated setup, repeated tone instructions, and stacked prose knobs when Caret^ can carry them directly.
+- Do expect lower compression when the source is already dense with concrete file paths, metadata fields, and decision tables.
+- Do expect strong compression in complex flow files if the rewrite keeps schemas and example payloads literal.
+
+## Directive Quality Bar
+
+When you mint open-vocabulary directives in a rewrite, they should do at least one of these:
+
+- collapse repeated operating language
+- mark a reusable boundary or mode
+- make sequence or precedence easier to see
+- reduce repeated prose without hiding meaning
+
+If a proposed directive does none of that, keep the heading or sentence in prose.
+
+## Adoption Heuristic
+
+Use compression as evidence, not as the only judge.
+
+Working bands:
+
+- `35%+` shorter and clearer: strong candidate for adoption
+- `15-35%` shorter: usually a hybrid candidate
+- under `15%` shorter: keep mostly prose unless clarity improves materially
+
+These are heuristics, not law. Clarity still beats raw shrinkage.
 
 ## Required Output
 
@@ -78,7 +163,22 @@ Finish with these sections:
 
 ### Findings
 
-Call out what changed, what stayed prose, and any unresolved harness assumptions.
+Call out:
+
+- what changed
+- what stayed prose
+- any unresolved harness assumptions
+- whether canon normalization was required
+
+### Adoption Call
+
+Choose one:
+
+- `adopt`
+- `hybrid`
+- `keep mostly prose`
+
+Explain the call in two or three sentences max.
 
 ### Caret^ Rewrite
 
@@ -136,6 +236,19 @@ Finish by using whatever logging or completion mechanism the local harness expec
 If the harness exposes a real log, archive, intake, or queue action, use it.
 
 If it does not, add a brief plain-language completion note and stop. Do not invent side effects.
+
+## What The First Test Runs Showed
+
+Early live runs showed the strongest gains in skills with repeated route logic, update rules, and closeout scaffolding.
+
+They showed weaker gains in skills that were already operating as compact decision tables.
+
+Use that pattern. Chase the live signal layer first.
+
+Later rounds added two more lessons:
+
+- complex orchestration files can still compress hard if schemas stay literal
+- stale Caret semantics are a separate normalization problem, not just a rewrite opportunity
 
 ## Closing Line
 
