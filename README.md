@@ -16,6 +16,8 @@ If you want the recommended platform install, use `/platform/caret-core-starter.
 
 If you need the canon behind it, read `/notation/`.
 
+If you want the philosophy behind it, read `/MANIFESTO.md`.
+
 If you want to compress an existing skill or instruction-heavy Markdown file into Caret^, use `/Caret-it-skill.md`.
 
 If you expect to use Caret^ repeatedly, promote it to a platform-level skill or instruction layer instead of pasting it into one chat at a time.
@@ -83,6 +85,25 @@ No patterns teaching yesterday's meaning.
 
 ## Current State
 
-This repo is being rebuilt from the cheatsheet outward.
+The core is live.
 
-That is intentional. The product artifact is locked first. The canon comes next. Supporting surfaces follow after that.
+The cheatsheet is the product.
+The canon is in place.
+The supporting surfaces exist to keep the product sharp, teachable, and durable.
+
+## Support
+
+If Caret^ saves you time or helps your workflow, you can support the project at `disruptionjoe.eth`.
+
+## Contributing
+
+Issues are welcome now.
+
+Pull requests may come later once the canon and repo shape settle a bit more.
+
+For now, the best contribution is:
+
+- report ambiguity
+- flag stale examples
+- point out harness edge cases
+- surface public-readiness gaps

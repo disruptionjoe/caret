@@ -19,6 +19,12 @@ Use one of these three paths:
 
 If you think you will use Caret^ more than once or twice, skip the one-off paste and do the platform-level setup.
 
+> **Jargon Note**
+> Some jargon is the tax you pay for working close to the machinery.
+> Being new is forgivable.
+> Refusing to use a glossary is not.
+> If a term feels slippery, hit `/glossary/` and keep moving.
+
 ## Path A: Quick Start
 
 This takes about 2 minutes.
@@ -63,6 +69,11 @@ Make sure your platform, harness repo, or skill system can reach this repo or at
 Do not start by loading the whole repo into the live instruction path.
 
 Start with the cheatsheet. Keep the rest nearby.
+
+If the words feel a little loaded:
+
+- `platform-level skill` means the shared instruction layer your tool loads before task-specific work
+- `harness` means the wrapper, repo, or runtime that decides how those instructions get loaded and applied
 
 ### Step 2: Create a Primary Caret^ Skill
 
@@ -116,7 +127,7 @@ Run these three tests:
 ```
 
 ```text
-^^skills/editor.md
+^^editor ^grip7
   Tighten this draft without changing the meaning.
 ```
 
@@ -124,7 +135,16 @@ You are looking for three things:
 
 - `^^` stays in the same worker
 - `^^^` creates a separate worker boundary
-- exact file targets behave more precisely than loose names
+- a simple hat-style target works without extra setup
+
+If you already have an exact skill or persona file, also try:
+
+```text
+^^skills/editor.md
+  Tighten this draft without changing the meaning.
+```
+
+That is the more precise exact-target version.
 
 ### Step 6: Keep Literal Text Literal
 
