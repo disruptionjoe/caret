@@ -5,6 +5,7 @@
 # Caret^
 
 **Caret^ cuts repeated agent instructions down to compact notation.**  
+
 Across our sample set, rewriting agent skill and persona files using Caret notation reduced prompt length by **95.8% overall**.
 
 This is for you if you ever draft or use Markdown files as agent skills or personas. If you design harnesses, it is a no brainer. 
