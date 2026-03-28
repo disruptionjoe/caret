@@ -29,17 +29,33 @@ Use three file shapes per round:
    - reference table or schema
 3. Run the five-lens review from `Caret-it-skill.md`.
 4. Draft the Caret^ rewrite.
-5. Compute token counts:
+5. Build a behavioral parity checklist or prompt set:
+   - required inputs or questions
+   - required outputs or artifacts
+   - required commands or side effects
+   - approval and safety boundaries
+   - logging or completion behavior
+6. Compare original and rewritten behavior:
+   - execute both on the same prompt set when a real harness is available
+   - otherwise do a static contract comparison and mark it as inferred
+7. Record a parity status:
+   - `pass`
+   - `partial`
+   - `fail`
+   - `unverified`
+8. Compute token counts:
    - use the local harness tokenizer if available
    - otherwise use `ceiling(character_count / 4)`
-6. Make an adoption call:
+9. Make an adoption call:
    - `adopt`
    - `hybrid`
    - `keep mostly prose`
-7. Record:
+10. Record:
    - what compressed well
    - what stayed prose
    - what broke or resisted compression
+   - what parity preserved
+   - what parity lost
    - unresolved harness assumptions
 
 ## Between-Round Synthesis
@@ -80,6 +96,7 @@ The workflow is converging when these conditions hold:
 - literal templates stay literal
 - stale semantics trigger normalization instead of blind conversion
 - compression improves without hiding meaning
+- parity failures become easier to predict before a rewrite is proposed
 
 ## Output Bundle
 
@@ -90,6 +107,7 @@ Each optimization run should produce:
 - one round summary per round
 - per-file reports
 - per-file rewrites when a rewrite is actually appropriate
+- one parity matrix showing which rewrites are safe replacements versus compression-only evidence
 
 The point is not just better rewrites.
 

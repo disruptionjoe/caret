@@ -142,8 +142,16 @@ If the harness can spawn or simulate multiple perspectives cleanly, use that. If
 8. Keep supporting prose outside the notation when the prose carries real meaning.
 9. Keep literal examples and templates inside fenced code blocks.
 10. Preserve exact file references when precision matters.
-11. Do not invent canonical syntax that the current Caret^ docs do not support.
-12. If the user asked for an in-place rewrite, update the file. Otherwise, present a proposed rewrite.
+11. Build a behavioral parity checklist from the source:
+   - required inputs or questions
+   - required outputs or artifacts
+   - required commands, side effects, or file updates
+   - required safety and approval boundaries
+   - required logging or completion behavior
+12. Compare the original and rewrite against the same representative prompts.
+13. If no runnable harness is available, do a static contract comparison instead and say so explicitly.
+14. Do not invent canonical syntax that the current Caret^ docs do not support.
+15. If the user asked for an in-place rewrite, update the file. Otherwise, present a proposed rewrite.
 
 ## Rewrite Rules
 
@@ -157,11 +165,46 @@ If the harness can spawn or simulate multiple perspectives cleanly, use that. If
 - Do not mint one-off directives just because a heading exists. Use directives when they carry real operational signal.
 - Do not treat semantic normalization as a pure compression win.
 - Do not treat shared-contract extraction as if it were entirely local workflow compression.
+- Do not call a rewrite adoptable if required behavior only survives as a note like "keep this literal from the source."
 - Do compress duplicated setup, repeated tone instructions, and stacked prose knobs when Caret^ can carry them directly.
 - Do expect lower compression when the source is already dense with concrete file paths, metadata fields, and decision tables.
 - Do expect strong compression in complex flow files if the rewrite keeps schemas and example payloads literal.
 - Do use repo-relative paths, source URLs, or generic labels in public-facing reports instead of absolute local machine paths.
 - Do avoid leaking local usernames, home directories, private workspace names, or machine-specific folder structure unless the task explicitly requires them.
+
+## Behavioral Parity Gate
+
+Compression is not enough.
+
+Before calling a rewrite `adopt`, check whether it still does the same job.
+
+Use one of these statuses:
+
+- `pass`
+- `partial`
+- `fail`
+- `unverified`
+
+Check for parity across:
+
+- required questions or user interactions
+- required commands or side effects
+- required outputs, files, or report sections
+- approval and safety boundaries
+- logging and completion behavior
+
+If a runnable harness exists, compare the original and rewrite on the same prompt set.
+
+If no runnable harness exists, do a static contract comparison and say that parity is inferred rather than executed.
+
+Adoption guardrails:
+
+- `pass` can support `adopt`
+- `partial` usually caps the call at `hybrid`
+- `fail` means do not adopt the rewrite as a replacement
+- `unverified` means compression may be interesting, but replacement safety is still unknown
+
+If the rewrite only works after extracting a shared runtime contract into another artifact, name that as a dependency. Do not hide it inside the token win.
 
 ## Directive Quality Bar
 
@@ -210,6 +253,16 @@ Choose one:
 - `keep mostly prose`
 
 Explain the call in two or three sentences max.
+
+### Behavioral Parity
+
+Report:
+
+- parity status
+- whether parity was executed or inferred
+- the prompt set or comparison basis used
+- the main behaviors preserved
+- the main behaviors lost or left unresolved
 
 ### Caret^ Rewrite
 

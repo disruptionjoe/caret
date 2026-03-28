@@ -12,13 +12,37 @@
 
 - The ship skill shows that large orchestration files are not the boundary. They can compress hard when Caret^ carries the flow and literal blocks keep the exact commands.
 - The biggest caveat is that the source includes a massive shared runtime layer, so much of the compression comes from hoisting that contract rather than only shrinking the ship logic.
-- PR templates, gate logic, and metrics logging should stay literal even in a Caret-forward rewrite.
+- Under the new parity gate, this specific rewrite loses too much executable contract. Release commands, PR templates, platform handling, and metrics behavior are too exact to survive as references alone.
 
 ## Adoption Call
 
-`hybrid`
+`keep mostly prose`
 
-The workflow spine is an excellent Caret^ fit. The exact shell commands, review prompts, PR templates, and gating surfaces should stay literal. This should become a hybrid skill, not a pure notation wall.
+There is real compression signal here, but the current rewrite is not safe as a replacement. Until the shared contract is extracted for real and the literal release surfaces remain embedded, this is better treated as design evidence than as an adoptable rewrite.
+
+## Behavioral Parity
+
+- parity status: `fail`
+- parity basis: `inferred via static contract comparison`
+- comparison scope:
+  - shared gstack runtime contract
+  - platform detection
+  - verification gates
+  - versioning and changelog behavior
+  - PR and MR generation
+  - docs sync and metrics logging
+  - completion behavior
+- preserved:
+  - the high-level release sequence
+  - the existence of review and verification gates
+  - the need to keep literal command and template surfaces
+- lost or unresolved:
+  - exact shell command contract
+  - exact PR and MR body templates
+  - platform-specific branching and detection behavior
+  - docs sync workflow details
+  - metrics logging commands
+  - completion protocol details
 
 ## Compression Report
 
