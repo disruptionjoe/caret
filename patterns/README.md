@@ -60,6 +60,18 @@ Orchestrate work across time.
 - **[async-handoff](async-handoff.md)**: Async productivity vs. human awareness
 - **[overnight-factory](overnight-factory.md)**: Autonomy vs. drift
 
+### State and Memory
+
+Manage how agents remember, learn, and protect what matters.
+
+- **[domain-anchor](domain-anchor.md)**: Coherence vs. overhead
+- **[append-only-log](append-only-log.md)**: Growth vs. reliability
+- **[accumulated-corrections](accumulated-corrections.md)**: Rigidity vs. learning
+- **[immutable-state](immutable-state.md)**: Stability vs. speed
+- **[work-item-lifecycle](work-item-lifecycle.md)**: Discipline vs. simplicity
+- **[incremental-profiling](incremental-profiling.md)**: Accuracy vs. immediacy
+- **[voice-follows-domain](voice-follows-domain.md)**: Consistency vs. flexibility
+
 ### Safety and Mutation
 
 Control how agents change state.
