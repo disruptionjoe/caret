@@ -72,6 +72,17 @@ Manage how agents remember, learn, and protect what matters.
 - **[incremental-profiling](incremental-profiling.md)**: Accuracy vs. immediacy
 - **[voice-follows-domain](voice-follows-domain.md)**: Consistency vs. flexibility
 
+### Governance and Learning
+
+Control how agents learn, review, and maintain system integrity.
+
+- **[hat-before-worker](hat-before-worker.md)**: Efficiency vs. independence
+- **[anchored-memory-stack](anchored-memory-stack.md)**: Recall vs. cost
+- **[triggered-review](triggered-review.md)**: Safety vs. velocity
+- **[promotion-gate](promotion-gate.md)**: Adaptability vs. stability
+- **[source-of-truth-hierarchy](source-of-truth-hierarchy.md)**: Clarity vs. flexibility
+- **[live-registry](live-registry.md)**: Accuracy vs. maintenance cost
+
 ### Safety and Mutation
 
 Control how agents change state.

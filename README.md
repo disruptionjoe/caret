@@ -6,9 +6,9 @@
 
 **Caret^ cuts repeated agent instructions down to compact notation.**  
 
-Across our sample set, prompt length was reduced by 95.8% by rewriting agent skill and persona files using Caret notation.
+Across our sample set, prompt length was reduced by 39% on average — with full behavioral parity — by rewriting agent skill and persona files using Caret notation. On lighter local skills, savings reached 44%.
 
-This is for you if you ever draft or use Markdown files as agent skills or personas. If you design harnesses, it is a no brainer. 
+This is for you if you ever draft or use Markdown files as agent skills or personas. If you design harnesses, it is a no brainer.
 
 ## Before
 
@@ -56,11 +56,13 @@ Efficient? Not even slightly.
 
 **Caret^ replaces repetition with compact markers.**
 
-## Where the 95.8% came from
+## Where the numbers come from
 
-We sampled both our own material and random skills from Garry Tan’s GStack, then compared the original versions to Caret-style rewrites.
+We sampled both our own material and random skills from Garry Tan’s GStack, then compressed the originals using the Caret-it skill with built-in behavioral parity validation.
 
-**Average reduction across the sample: 95.8%.**
+**Average reduction across three large GStack skills: 39.2%.** Individual results ranged from 11% (already-dense files) to 55% (files heavy with repeated gate and sequencing logic). Every rewrite passed behavioral parity — they still do the same job.
+
+On 9 local skills in the optimization loop, rewrites came out **44.2% shorter** overall.
 
 ![Gstack token comparison before and after](assets/gstack-caret-savings.svg)
 
@@ -96,7 +98,7 @@ If you want the philosophy behind it, read `/MANIFESTO.md`.
 
 If you want the case for using it, read `/why-to-use-caret.md`.
 
-If you want to compress an existing skill or instruction-heavy Markdown file into Caret^, use `/Caret-it-skill.md`.
+If you want to compress an existing skill or instruction-heavy Markdown file into Caret^, use `/Caret-it-skill.md`. It handles analysis, rewrite, validation, and iteration in a single pass.
 
 If you expect to use Caret^ repeatedly, promote it to a platform-level skill or instruction layer instead of pasting it into one chat at a time.
 

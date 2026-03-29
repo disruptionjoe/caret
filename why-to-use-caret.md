@@ -16,10 +16,10 @@ More giant prompt blocks trying to force discipline through sheer bulk.
 
 Caret^ is the counter-move.
 
-**Use GStack to reduce your token usage by over 90%.**
+**Use Caret^ to cut your token usage by 39% or more — with full behavioral parity.**
 
 That is not a slogan.
-That is what the external GStack pass showed: **95.8% shorter overall** across three large skills once the shared runtime contract was separated from the workflow spine.
+That is what the GStack pass showed: **39.2% shorter on average** across three large, dense skills — and every rewrite still does the same job. Individual results ranged from 11% to 55% depending on how much repeated workflow logic was in the source.
 
 <p align="center">
   <img src="assets/gstack-caret-savings.svg" alt="GStack Caret savings results" width="900" />
@@ -67,10 +67,10 @@ Across 9 local skills in the optimization loop, the rewrites came out **44.2% sh
 See:
 - `/research/reports/caret-it-optimization/README.md`
 
-Across 3 large skills from `gstack`, hybrid rewrites reduced the workflow layer by **95.8% overall** once the shared runtime contract was separated from the skill-specific flow.
+Across 3 large skills from `gstack`, hybrid rewrites reduced the files by **39.2% on average** while passing behavioral parity on all three. The biggest win was 55% on the `ship` skill (heavy gate and sequencing logic). The most conservative was 11.5% on `plan-eng-review` (already dense with bash templates and schemas).
 
 See:
-- `/research/reports/gstack-caret-it-tests/README.md`
+- `/research/reports/gstack-caret-it-tests/v2-README.md`
 
 And the `autoresearch` pass showed the limit case clearly:
 

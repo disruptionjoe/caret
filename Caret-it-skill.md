@@ -4,12 +4,13 @@ Take a working skill or any instruction-heavy `.md` file.
 Strip the drag.
 Keep the force.
 Rewrite it in Caret^ where Caret^ actually helps.
+Deliver a validated result — not a draft that needs separate testing.
 
 ## Purpose
 
 This skill converts verbose operational prose into a tighter Caret^ form without dropping the constraints that make the original useful.
 
-It is built to run alongside an existing skill, prompt file, workflow doc, or other Markdown instruction artifact.
+It handles the full cycle: analysis, rewrite, self-validation, and iteration. One invocation produces a finished, parity-checked result.
 
 ## What Good Looks Like
 
@@ -20,6 +21,7 @@ The rewritten file should be:
 - cleaner about worker vs hat changes
 - tighter about safety and trust assumptions
 - easier to reuse across sessions
+- behaviorally equivalent to the original
 
 Not everything belongs in Caret^.
 
@@ -121,7 +123,11 @@ Run the target through five lenses before rewriting:
 
 If the harness can spawn or simulate multiple perspectives cleanly, use that. If not, perform the same five-lens pass inside one worker. The review still stands.
 
-## Rewrite Process
+## Full Process
+
+The skill runs in three phases: Analyze, Rewrite, and Validate. All three happen in a single invocation.
+
+### Phase 1: Analyze
 
 1. Read the full target file before rewriting anything.
 2. Check for canon conflicts or stale notation semantics.
@@ -138,20 +144,62 @@ If the harness can spawn or simulate multiple perspectives cleanly, use that. If
    - approval boundaries
    - reporting requirements
 6. Run the five-lens review.
-7. Rewrite the live instruction layer in Caret^ where it increases clarity or compression.
-8. Keep supporting prose outside the notation when the prose carries real meaning.
-9. Keep literal examples and templates inside fenced code blocks.
-10. Preserve exact file references when precision matters.
-11. Build a behavioral parity checklist from the source:
-   - required inputs or questions
-   - required outputs or artifacts
-   - required commands, side effects, or file updates
-   - required safety and approval boundaries
+7. Build a behavioral contract from the source (used in Phase 3):
+   - required inputs or questions the skill must ask
+   - required outputs, files, or report sections it must produce
+   - required commands or side effects it must execute
+   - required safety and approval boundaries it must enforce
    - required logging or completion behavior
-12. Compare the original and rewrite against the same representative prompts.
-13. If no runnable harness is available, do a static contract comparison instead and say so explicitly.
-14. Do not invent canonical syntax that the current Caret^ docs do not support.
-15. If the user asked for an in-place rewrite, update the file. Otherwise, present a proposed rewrite.
+
+### Phase 2: Rewrite
+
+8. Rewrite the live instruction layer in Caret^ where it increases clarity or compression.
+9. Keep supporting prose outside the notation when the prose carries real meaning.
+10. Keep literal examples and templates inside fenced code blocks.
+11. Preserve exact file references when precision matters.
+12. Do not invent canonical syntax that the current Caret^ docs do not support.
+13. If the user asked for an in-place rewrite, hold the update until Phase 3 passes.
+
+### Phase 3: Validate
+
+This phase replaces the need for any external parity skill. The validation is built in.
+
+14. Generate a prompt suite from the source file. Build 3 to 5 concrete prompts:
+    - one normal happy-path prompt
+    - one edge or ambiguity prompt
+    - one prompt that pressures safety, approval, or escalation
+    - one prompt that pressures output format or artifact requirements
+    - optional: one prompt that targets a known weak spot
+
+    The prompts must be specific to the skill being rewritten, not generic. Derive them from the behavioral contract extracted in step 7.
+
+15. Compare the original and rewrite against each prompt:
+    - What does the original require for this prompt?
+    - Does the rewrite preserve that requirement?
+    - Is anything lost, changed, or ambiguous?
+
+16. Build a parity matrix for each prompt:
+    - preserved behaviors
+    - changed behaviors
+    - lost behaviors
+    - unresolved behaviors
+
+17. Classify overall parity:
+    - `pass` — all required behaviors preserved
+    - `partial` — some behaviors lost or ambiguous
+    - `fail` — critical behaviors missing
+    - `unverified` — comparison could not be completed
+
+18. If parity is `partial`, patch the rewrite and re-compare. Iterate up to 2 additional times.
+
+19. Stop iterating if:
+    - parity reaches `pass`
+    - the same behavior keeps getting dropped (the source may resist compression there)
+    - gains are mostly token savings with no path to full parity
+
+20. If no runnable harness is available, do a static contract comparison and mark parity as `inferred` rather than `executed`. Static comparison is still useful — it is just weaker evidence.
+
+21. If the user asked for an in-place rewrite and parity is `pass`, apply the update now. If parity is `partial` or worse, present the rewrite as a proposal with the parity findings attached.
 
 ## Rewrite Rules
 
@@ -171,40 +219,6 @@ If the harness can spawn or simulate multiple perspectives cleanly, use that. If
 - Do expect strong compression in complex flow files if the rewrite keeps schemas and example payloads literal.
 - Do use repo-relative paths, source URLs, or generic labels in public-facing reports instead of absolute local machine paths.
 - Do avoid leaking local usernames, home directories, private workspace names, or machine-specific folder structure unless the task explicitly requires them.
-
-## Behavioral Parity Gate
-
-Compression is not enough.
-
-Before calling a rewrite `adopt`, check whether it still does the same job.
-
-Use one of these statuses:
-
-- `pass`
-- `partial`
-- `fail`
-- `unverified`
-
-Check for parity across:
-
-- required questions or user interactions
-- required commands or side effects
-- required outputs, files, or report sections
-- approval and safety boundaries
-- logging and completion behavior
-
-If a runnable harness exists, compare the original and rewrite on the same prompt set.
-
-If no runnable harness exists, do a static contract comparison and say that parity is inferred rather than executed.
-
-Adoption guardrails:
-
-- `pass` can support `adopt`
-- `partial` usually caps the call at `hybrid`
-- `fail` means do not adopt the rewrite as a replacement
-- `unverified` means compression may be interesting, but replacement safety is still unknown
-
-If the rewrite only works after extracting a shared runtime contract into another artifact, name that as a dependency. Do not hide it inside the token win.
 
 ## Directive Quality Bar
 
@@ -244,6 +258,29 @@ Call out:
 - whether shared contract extraction was a major factor
 - whether any source references were generalized for public-safe reporting
 
+### Prompt Suite
+
+List the prompts generated for validation and why each one exists.
+
+### Parity Matrix
+
+For each prompt, show:
+
+- original behavior
+- rewrite behavior
+- preserved / changed / lost / unresolved
+
+### Iteration Log
+
+If patches were needed, show:
+
+- iteration number
+- what was patched
+- why the patch mattered
+- parity status after patch
+
+If the rewrite passed on first comparison, say so.
+
 ### Adoption Call
 
 Choose one:
@@ -258,88 +295,7 @@ Explain the call in two or three sentences max.
 
 Report:
 
-- parity status
+- parity status (`pass`, `partial`, `fail`, `unverified`)
 - whether parity was executed or inferred
-- the prompt set or comparison basis used
-- the main behaviors preserved
-- the main behaviors lost or left unresolved
-
-### Caret^ Rewrite
-
-Provide the rewritten version or the patch summary if you updated the file directly.
-
-### Compression Report
-
-Report:
-
-- original token count
-- rewritten token count
-- tokens saved
-- percentage shorter
-- projected savings over 1,000 runs
-
-Use the local harness tokenizer if one exists.
-
-If no tokenizer is available, estimate tokens as:
-
-```text
-estimated_tokens = ceiling(character_count / 4)
-```
-
-Use this math:
-
-```text
-tokens_saved = original_tokens - rewritten_tokens
-percentage_shorter = (tokens_saved / original_tokens) * 100
-projected_1000_run_savings = tokens_saved * 1000
-```
-
-Round percentages to one decimal place unless the local harness has a stronger reporting standard.
-
-### Example Compression
-
-Show one short before-and-after excerpt that makes the savings visible.
-
-Format:
-
-```text
-Before:
-...
-
-After:
-...
-
-Why it compresses:
-...
-```
-
-### Log Note
-
-Finish by using whatever logging or completion mechanism the local harness expects.
-
-If the harness exposes a real log, archive, intake, or queue action, use it.
-
-If it does not, add a brief plain-language completion note and stop. Do not invent side effects.
-
-## What The First Test Runs Showed
-
-Early live runs showed the strongest gains in skills with repeated route logic, update rules, and closeout scaffolding.
-
-They showed weaker gains in skills that were already operating as compact decision tables.
-
-Use that pattern. Chase the live signal layer first.
-
-Later rounds added two more lessons:
-
-- complex orchestration files can still compress hard if schemas stay literal
-- stale Caret semantics are a separate normalization problem, not just a rewrite opportunity
-
-## Closing Line
-
-End with a plain-language statement of value in this form:
-
-```text
-This rewrite is X% shorter. At roughly Y tokens saved per run, using it 1,000 times saves about Z tokens.
-```
-
-Keep it concrete. Make the gain easy to feel.
+- if inferred, what would need real execution to be sure
+- number of iterations used

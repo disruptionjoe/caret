@@ -14,8 +14,9 @@ Start here:
 
 1. `/research/reports/caret-it-optimization/README.md`
 2. `/research/reports/caret-it-optimization/WORKFLOW.md`
-3. `/research/reports/caret-it-tests/README.md`
-4. `/research/reports/gstack-caret-it-tests/README.md`
+3. `/research/reports/caret-it-parity-loop/README.md`
+4. `/research/reports/caret-it-tests/README.md`
+5. `/research/reports/gstack-caret-it-tests/README.md`
 
 ## What Lives Here
 
