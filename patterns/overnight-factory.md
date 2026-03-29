@@ -16,7 +16,7 @@
     ^report
 ```
 
-The executor has permission to work. Not to decide what to work on. The evaluator has permission to queue work. Not to do it. Neither alone can run away.
+The executor has permission to work. Not to decide what to work on. The evaluator has permission to queue work. Not to do it. Neither alone can run away. The notation shows the executor/evaluator cycle; phase-specific permissions (first pass can queue, final pass is review-only) and the closed-loop guarantee (no infinite recursion) are prose-level contracts below.
 
 ## What it does
 

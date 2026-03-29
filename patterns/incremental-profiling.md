@@ -4,12 +4,12 @@
 
 ```
 ^^^anchored-agent
-  ^intake
-  ^log
-  ^observation
+  ^intake       — one drip question per interaction, max
+  ^observation  — passive; no user input required
+  ^log          — corrections are highest-signal; append-only
 ```
 
-Three channels feed one model. No upfront interview. No comprehensive form. The model grows by drip, observation, and correction.
+Three channels feed one model over time. No upfront interview. No comprehensive form. The model grows by drip, observation, and correction. The notation encodes the three channels; the temporal learning loop — that profiling happens across many sessions, not in one pass — is a design constraint defined in the prose below.
 
 ## What it does
 

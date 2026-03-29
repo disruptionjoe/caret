@@ -3,7 +3,7 @@
 ## Notation
 
 ```
-^^^intake ^grip9 ^scope3
+^^^intake ^grip2 ^scope3
   ^extract
 
 ^^^router ^depth7

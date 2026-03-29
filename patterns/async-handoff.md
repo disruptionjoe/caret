@@ -12,7 +12,7 @@
   ^archive
 ```
 
-Machine runs. Machine logs. At the boundary: one summary. Human reads. Human decides. Machine resumes.
+Machine runs. Machine logs. At the boundary: one summary. Human reads. Human decides. Machine resumes. The notation encodes the worker/reporter structure; the timing contract — scheduled boundaries, human decision windows, summary cadence — is a harness-level concern defined in the prose below.
 
 ## What it does
 

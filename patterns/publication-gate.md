@@ -11,7 +11,7 @@
   ^triage
 ```
 
-Hard boundary between draft/build and anything public, sent, deployed, or published. The worker prepares. The reviewer — always human — decides.
+Hard boundary between draft/build and anything public, sent, deployed, or published. The worker prepares. The reviewer — always human — decides. The notation encodes the worker/reviewer boundary; the human-approval requirement is a policy constraint defined in the prose below, not something the notation alone conveys.
 
 ## What it does
 

@@ -8,7 +8,7 @@
   ^log
 ```
 
-New work gets a `-draft` suffix. Existing files get archived before modification. Provisional or reversible. Never both dangerous and irreversible.
+New work gets a `-draft` suffix. Existing files get archived before modification. Provisional or reversible. Never both dangerous and irreversible. The notation shows archival and logging; the draft-naming convention, archive format, and promotion workflow are implementation contracts defined in the prose below.
 
 ## What it does
 

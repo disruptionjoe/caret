@@ -10,7 +10,7 @@
   ^log         — evidence layer, informs but does not override
 ```
 
-Precedence flows top to bottom. Higher layers override lower layers. Lower layers inform higher layers through promotion.
+Precedence flows top to bottom. Higher layers override lower layers. Lower layers inform higher layers through promotion. The inline comments in the notation block above are load-bearing — without them, the four directives do not convey precedence on their own.
 
 ## What it does
 

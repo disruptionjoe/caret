@@ -102,104 +102,87 @@ Examples:
 
 If normalization is required, say so explicitly in the output. Do not count semantic repair as if it were only a notation win.
 
-## Five-Lens Review
+## Analytical Review
 
-Run the target through five lenses before rewriting:
+^^notation-architect ^d7
+  Find what should become Caret^, what should stay prose, and where the original is smuggling semantics that belong in explicit notation.
 
-1. `notation architect`
-   Find what should become Caret^, what should stay prose, and where the original is smuggling semantics that belong in explicit notation.
+^^harness-implementer ^d7
+  Catch hidden execution assumptions, unresolved targets, weak defaults, and instructions that only work in one local environment.
 
-2. `harness implementer`
-   Catch hidden execution assumptions, unresolved targets, weak defaults, and instructions that only work in one local environment.
+^^security-reviewer ^d8
+  Catch trust-boundary problems, ambiguous literal-vs-live text, and any place the rewrite could imply unsafe execution.
 
-3. `security reviewer`
-   Catch trust-boundary problems, ambiguous literal-vs-live text, and any place the rewrite could imply unsafe execution.
+^^edge-case-tester ^d7
+  Catch scope ambiguity, Markdown traps, nesting confusion, blank-line drift, and worker-vs-hat mistakes.
 
-4. `edge-case tester`
-   Catch scope ambiguity, Markdown traps, nesting confusion, blank-line drift, and worker-vs-hat mistakes.
+^^compression-editor ^d6
+  Remove repetition, collapse obvious prose, and preserve only the words that still earn their tokens.
 
-5. `compression editor`
-   Remove repetition, collapse obvious prose, and preserve only the words that still earn their tokens.
+Run all five lenses before proceeding. If the harness can spawn perspectives cleanly, use that. Otherwise, perform the same pass inside one worker.
 
-If the harness can spawn or simulate multiple perspectives cleanly, use that. If not, perform the same five-lens pass inside one worker. The review still stands.
+## Workflow
 
-## Full Process
+^^^workflow ^d8 ^grip9
 
-The skill runs in three phases: Analyze, Rewrite, and Validate. All three happen in a single invocation.
+  ^intake ^d7
+    1. Read the full target file before rewriting anything.
+    2. Check for canon conflicts or stale notation semantics.
+    3. Separate live instructions from explanatory or historical prose.
+    4. Mark each section:
+       - live signal layer
+       - literal example or template
+       - reference table or schema
+       - explanatory prose
+    5. Extract non-negotiables: constraints, safety rules, target files, approval boundaries, reporting requirements.
+    6. Run all five analytical lenses.
+    7. Build behavioral contract:
+       - required inputs or questions
+       - required outputs, files, or report sections
+       - required commands or side effects
+       - required safety and approval boundaries
+       - required logging or completion behavior
 
-### Phase 1: Analyze
+  ^rewrite ^d7 ^grip8
+    1. Rewrite the live instruction layer in Caret^ where it increases clarity or compression.
+    2. Keep supporting prose outside the notation when prose carries real meaning.
+    3. Keep literal examples and templates inside fenced code blocks.
+    4. Preserve exact file references when precision matters.
+    5. Do not invent canonical syntax the current Caret^ docs do not support.
+    6. If user asked for in-place rewrite, hold the update until validation passes.
 
-1. Read the full target file before rewriting anything.
-2. Check for canon conflicts or stale notation semantics.
-3. Separate live instructions from explanatory or historical prose.
-4. Mark each section as one of these before rewriting:
-   - live signal layer
-   - literal example or template
-   - reference table or schema
-   - explanatory prose
-5. Extract the non-negotiables:
-   - required constraints
-   - safety rules
-   - target files or handles
-   - approval boundaries
-   - reporting requirements
-6. Run the five-lens review.
-7. Build a behavioral contract from the source (used in Phase 3):
-   - required inputs or questions the skill must ask
-   - required outputs, files, or report sections it must produce
-   - required commands or side effects it must execute
-   - required safety and approval boundaries it must enforce
-   - required logging or completion behavior
+  ^validate ^d8
+    1. Generate prompt suite from source file: 3-5 concrete prompts specific to the skill.
+       - one normal happy-path prompt
+       - one edge or ambiguity prompt
+       - one prompt that pressures safety, approval, or escalation
+       - one prompt that pressures output format or artifact requirements
+       - optional: one prompt that targets a known weak spot
+       Derive from behavioral contract.
 
-### Phase 2: Rewrite
+    2. For each prompt, compare original vs rewrite:
+       - What does original require?
+       - Does rewrite preserve it?
+       - Anything lost, changed, or ambiguous?
 
-8. Rewrite the live instruction layer in Caret^ where it increases clarity or compression.
-9. Keep supporting prose outside the notation when the prose carries real meaning.
-10. Keep literal examples and templates inside fenced code blocks.
-11. Preserve exact file references when precision matters.
-12. Do not invent canonical syntax that the current Caret^ docs do not support.
-13. If the user asked for an in-place rewrite, hold the update until Phase 3 passes.
+    3. Build parity matrix per prompt: preserved behaviors, changed behaviors, lost behaviors, unresolved behaviors.
 
-### Phase 3: Validate
+    4. Classify parity:
+       - `pass` — all required behaviors preserved
+       - `partial` — some behaviors lost or ambiguous
+       - `fail` — critical behaviors missing
+       - `unverified` — comparison could not be completed
 
-This phase replaces the need for any external parity skill. The validation is built in.
+    5. If parity is `partial`, patch the rewrite and re-compare. Iterate max 2 additional times.
 
-14. Generate a prompt suite from the source file. Build 3 to 5 concrete prompts:
-    - one normal happy-path prompt
-    - one edge or ambiguity prompt
-    - one prompt that pressures safety, approval, or escalation
-    - one prompt that pressures output format or artifact requirements
-    - optional: one prompt that targets a known weak spot
+    6. Stop iterating if:
+       - parity reaches `pass`
+       - same behavior keeps getting dropped (source may resist compression)
+       - gains are mostly token savings with no path to full parity
 
-    The prompts must be specific to the skill being rewritten, not generic. Derive them from the behavioral contract extracted in step 7.
+    7. If no runnable harness available, do static contract comparison and mark parity `inferred` rather than `executed`.
 
-15. Compare the original and rewrite against each prompt:
-    - What does the original require for this prompt?
-    - Does the rewrite preserve that requirement?
-    - Is anything lost, changed, or ambiguous?
-
-16. Build a parity matrix for each prompt:
-    - preserved behaviors
-    - changed behaviors
-    - lost behaviors
-    - unresolved behaviors
-
-17. Classify overall parity:
-    - `pass` — all required behaviors preserved
-    - `partial` — some behaviors lost or ambiguous
-    - `fail` — critical behaviors missing
-    - `unverified` — comparison could not be completed
-
-18. If parity is `partial`, patch the rewrite and re-compare. Iterate up to 2 additional times.
-
-19. Stop iterating if:
-    - parity reaches `pass`
-    - the same behavior keeps getting dropped (the source may resist compression there)
-    - gains are mostly token savings with no path to full parity
-
-20. If no runnable harness is available, do a static contract comparison and mark parity as `inferred` rather than `executed`. Static comparison is still useful — it is just weaker evidence.
-
-21. If the user asked for an in-place rewrite and parity is `pass`, apply the update now. If parity is `partial` or worse, present the rewrite as a proposal with the parity findings attached.
+    8. If user asked for in-place rewrite and parity is `pass`, apply update now. If `partial` or worse, present as proposal with parity findings.
 
 ## Rewrite Rules
 
@@ -245,57 +228,10 @@ These are heuristics, not law. Clarity still beats raw shrinkage.
 
 ## Required Output
 
-Finish with these sections:
-
-### Findings
-
-Call out:
-
-- what changed
-- what stayed prose
-- any unresolved harness assumptions
-- whether canon normalization was required
-- whether shared contract extraction was a major factor
-- whether any source references were generalized for public-safe reporting
-
-### Prompt Suite
-
-List the prompts generated for validation and why each one exists.
-
-### Parity Matrix
-
-For each prompt, show:
-
-- original behavior
-- rewrite behavior
-- preserved / changed / lost / unresolved
-
-### Iteration Log
-
-If patches were needed, show:
-
-- iteration number
-- what was patched
-- why the patch mattered
-- parity status after patch
-
-If the rewrite passed on first comparison, say so.
-
-### Adoption Call
-
-Choose one:
-
-- `adopt`
-- `hybrid`
-- `keep mostly prose`
-
-Explain the call in two or three sentences max.
-
-### Behavioral Parity
-
-Report:
-
-- parity status (`pass`, `partial`, `fail`, `unverified`)
-- whether parity was executed or inferred
-- if inferred, what would need real execution to be sure
-- number of iterations used
+^report
+  - **Findings:** what changed, what stayed prose, unresolved harness assumptions, canon normalization required?, shared contract extracted?, references generalized for public safety?
+  - **Prompt Suite:** list generated prompts and why each one exists
+  - **Parity Matrix:** per prompt, show original behavior, rewrite behavior, preserved/changed/lost/unresolved
+  - **Iteration Log:** iteration number, what was patched, why patch mattered, parity status after patch (or "passed first comparison")
+  - **Adoption Call:** choose `adopt` / `hybrid` / `keep mostly prose` with 2-3 sentence explanation
+  - **Behavioral Parity:** status (`pass`/`partial`/`fail`/`unverified`), executed or inferred, what would need real execution, iterations used

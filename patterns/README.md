@@ -89,11 +89,21 @@ Control how agents change state.
 
 - **[safe-mutation](safe-mutation.md)**: Safety vs. ceremony
 
+## What the notation carries
+
+Not every pattern encodes its full behavioral contract in notation alone. Some patterns are structural — the notation itself carries the weight. Others are governance patterns where the notation shows the workflow shape, but the behavioral contract (who decides, when, under what constraints) lives in the prose.
+
+**Structural patterns** — notation carries full weight. An agent with only the cheatsheet and the notation block would execute correctly. Examples: gated-pipeline, decision-tree-router, layered-authority, disposable-specialists, context-refresh, scope-constraint, immutable-state.
+
+**Governance patterns** — notation shows structure, prose defines the contract. The notation is accurate but incomplete without the surrounding design notes. Each of these patterns includes a note after the notation block explaining what the prose carries that the notation cannot. Examples: disposition-gate, publication-gate, async-handoff, overnight-factory, safe-mutation.
+
+This is by design. Caret^ encodes operational intent. It does not encode policy, timing, naming conventions, or human-approval requirements. Those are harness-level or prose-level concerns.
+
 ## Pattern structure
 
 Each pattern has five sections:
 
-1. **Notation** — How to draw it in Caret^ canon
+1. **Notation** — How to draw it in Caret^ canon, with a note on what the notation carries vs what the prose carries
 2. **What it does** — The structural shape and why it matters
 3. **When to use it** — Conditions where this choice pays off
 4. **When not to use it** — Where this pattern creates drag

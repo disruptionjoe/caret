@@ -4,10 +4,11 @@
 
 ```
 ^^^domain
+  ^^route:registry/voice.md
   ^voice
 ```
 
-The domain owns the voice. The agent borrows it.
+The domain owns the voice. The agent borrows it. The notation signals the lookup — voice is routed from a registry, not set by the agent. Without the route directive, this would look like "apply voice" rather than "consult the registry for voice."
 
 ## What it does
 

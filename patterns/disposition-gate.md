@@ -9,7 +9,7 @@
   ^log
 ```
 
-Human reads each item. Decides: now or later. If later, where. If now, who. Nothing passes without explicit disposition.
+Human reads each item. Decides: now or later. If later, where. If now, who. Nothing passes without explicit disposition. The notation above encodes the workflow steps; the gating contract — that a human must make an explicit binary decision before anything proceeds — lives in the prose below.
 
 ## What it does
 
@@ -45,7 +45,7 @@ The gate is stateful. Each item has a disposition. Shelved items stay shelved un
 
 Logging is essential. Every decision. Who. When. What. Why (short). Audit trail. Later, when someone asks why something didn't happen, you check the gate log.
 
-Contrast with `disposition-gate`: a router decides which branch immediately. The gate delays decision until humans can review. Router is fast. Gate is deliberate. Router is for automated filtering. Gate is for human authority.
+Contrast with `decision-tree-router`: a router decides which branch immediately. The gate delays decision until humans can review. Router is fast. Gate is deliberate. Router is for automated filtering. Gate is for human authority.
 
 One trap: don't let backlog become a black hole. Items arrive, get shelved, then sit forever. Backlog needs a review cycle. Weekly. Monthly. Without it, dead items accumulate and signal becomes noise.
 

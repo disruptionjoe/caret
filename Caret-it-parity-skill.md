@@ -61,46 +61,37 @@ Do not test only the easy path.
 
 ## Loop
 
-1. Read the original skill in full.
-2. Read the Caret^ rewrite in full.
-3. Build the prompt suite.
-4. Run the original skill on the prompt suite if a real harness is available.
-5. If no harness is available, extract the contract statically:
-   - what it asks
-   - what it must do
-   - what it must not do
-   - what it must output
-6. Run the rewrite on the same prompt suite, or compare it statically if execution is unavailable.
-7. Build a parity matrix:
-   - preserved
-   - changed
-   - lost
-   - unresolved
-8. Classify parity:
-   - `pass`
-   - `partial`
-   - `fail`
-   - `unverified`
-9. If parity is not good enough, patch the rewrite.
-10. Repeat until:
-   - parity passes
-   - improvements stop being general
-   - or the iteration cap is reached
+^intake original, rewrite, prompt suite
+
+^harness-available
+  ^execute original on suite
+  ^execute rewrite on suite
+^harness-available: else
+  ^extract-contract original (asks, must-do, must-not-do, output)
+  ^extract-contract rewrite (same)
+
+^build parity-matrix
+  ^scope: per-prompt
+  ^classify (preserved, changed, lost, unresolved)
+
+^classify-parity (pass | partial | fail | unverified)
+
+^iterate ^cap3
+  Gate: parity == pass → stop
+  Gate: improvements-stalled → stop
+  Gate: loop-count >= 3 → stop
+  ^patch rewrite, re-compare
 
 ## Iteration Rules
 
-Default cap: 3 rewrite iterations after the first draft.
-
-Do not loop forever.
+Before starting Loop: identify shared-contract vs local-workflow layers. If the source bundles shared contract, report separation explicitly. Do not count shared-contract extraction as part of local compression gains.
 
 Stop early if:
-
 - the rewrite keeps dropping the same required behavior
 - the source depends on too much literal contract to compact safely
 - the gains are mostly token savings with no path to parity
 
-That is a valid result.
-The right answer may be `keep mostly prose`.
+Default cap: 3 iterations. Do not loop forever. That is a valid result — the right answer may be `keep mostly prose`.
 
 ## Static Comparison Rule
 
@@ -116,42 +107,14 @@ It is just weaker evidence.
 
 ## Required Output
 
-Finish with these sections:
-
-### Prompt Suite
-
-List the prompts used and why each one exists.
-
-### Parity Matrix
-
-For each prompt, compare:
-
-- original behavior
-- rewrite behavior
-- preserved behaviors
-- lost behaviors
-- unresolved behaviors
-
-### Iteration Log
-
-Show:
-
-- iteration number
-- parity status
-- what was patched
-- why the patch mattered
-
-### Final Call
-
-Choose one:
-
-- `replacement-safe`
-- `hybrid-only`
-- `compression-only evidence`
-- `keep mostly prose`
-
-### Confidence Note
-
-Say whether parity was executed or inferred.
-
-If inferred, say what would still need real execution to be sure.
+^report
+  ^section Prompt Suite
+    List prompts used and why each exists.
+  ^section Parity Matrix
+    Per-prompt compare: original behavior | rewrite behavior | preserved | lost | unresolved
+  ^section Iteration Log
+    Per-iteration show: number | status | patch | rationale
+  ^section Final Call
+    Choose: `replacement-safe` | `hybrid-only` | `compression-only evidence` | `keep mostly prose`
+  ^section Confidence Note
+    Executed or inferred parity? If inferred, what still needs real execution?

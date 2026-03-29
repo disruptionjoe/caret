@@ -4,7 +4,7 @@
 
 ```
 ^review
-  ^trigger: risk | uncertainty | external-consequence
+  ^trigger:risk,uncertainty,external-consequence
 ```
 
 Review fires when a threshold is crossed. Not on every output. Not on a schedule. On conditions.
